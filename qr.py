@@ -4,6 +4,9 @@ import qrcode
 # Yêu cầu người dùng nhập link
 data = input("Nhập link bạn muốn tạo mã QR: ")
 
+# Yêu cầu người dùng nhập tên muốn hiển thị
+name = input("Nhập tên bạn muốn hiển thị: ")
+
 # Bước 1: Tạo mã QR
 qr = qrcode.QRCode(
     version=1,
@@ -49,7 +52,8 @@ try:
 except OSError:
     font = ImageFont.load_default()  # Dùng font mặc định nếu không tìm thấy font
 
-text = "Thùy Linh"  # Bạn có thể yêu cầu người dùng nhập tên nếu muốn
+# Sử dụng tên đã nhập để hiển thị trên ảnh
+text = name
 text_bbox = draw.textbbox((0, 0), text, font=font)
 text_width = text_bbox[2] - text_bbox[0]
 text_height = text_bbox[3] - text_bbox[1]
@@ -60,3 +64,4 @@ draw.text((text_x, text_y), text, fill="white", font=font)
 # Lưu hình ảnh cuối cùng
 final_img.save("custom_qr.png")
 print("Mã QR được tạo và lưu thành công dưới tên 'custom_qr.png'.")
+
