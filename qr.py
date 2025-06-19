@@ -44,8 +44,9 @@ def index():
         draw.rectangle([(0, new_height), (new_width, new_height + footer_height)], fill=border_color)
 
         # Thêm văn bản
+        font_path = "fonts/arial.ttf"
         try:
-            font = ImageFont.truetype("arial.ttf", 40)
+            font = ImageFont.truetype(font_path, 40)
         except OSError:
             font = ImageFont.load_default()
         text_bbox = draw.textbbox((0, 0), name, font=font)
@@ -66,3 +67,4 @@ def index():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
+
