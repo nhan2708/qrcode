@@ -46,7 +46,7 @@ def index():
         # Thêm văn bản
         font_path = "fonts/arial.ttf"
         try:
-            font = ImageFont.truetype(font_path, 100)
+            font = ImageFont.truetype(font_path, 200)
         except OSError:
             font = ImageFont.load_default()
         text_bbox = draw.textbbox((0, 0), name, font=font)
